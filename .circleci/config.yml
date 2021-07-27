@@ -15,9 +15,9 @@ jobs:
       
 workflows:
   version: 2
-   excute:
-     jobs:
-       - build_deploy
+  excute:
+    jobs:
+      - build_deploy
        
    
       
