@@ -15,7 +15,7 @@ jobs:
       
 workflows:
   version: 2
-  excute:
+  execute_bulk:
     jobs:
       - build_deploy
        
