@@ -4,7 +4,7 @@ orbs:
 jobs:
   build_deploy:
     machine: 
-      image: cimg/python
+      image: circleci/node
     steps:
       - checkout
       - run: |
