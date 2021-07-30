@@ -4,7 +4,7 @@ orbs:
 jobs:
   build_deploy:
     machine: 
-      image: cimg/python:3.8
+      image: cimg/python
     steps:
       - checkout
       - run: |
