@@ -9,13 +9,16 @@ jobs:
       - checkout
       - run:
           name: Installing aws cli
+          working_directory: ./app/build
           command: |
             sudo apt-get update
             sudo apt install python3-pip
             sudo  pip3 install awsebcli --upgrade
       - run: cd ./app && npm install && npm run build
+      - run: zip << pipeline.number >> -r .
       - aws-s3/sync:
-          from: ./app/
+          working_directory: ./app/build
+          from: << pipeline.number >>.zip
           to: 's3://circle-ci-buckets'
     
        
