@@ -9,7 +9,6 @@ jobs:
       - checkout
       - run:
           name: Installing aws cli
-          working_directory: ~/build
           command: |
             sudo apt-get update
             sudo apt install python3-pip
@@ -17,8 +16,7 @@ jobs:
       - run: cd ./app && npm install && npm run build
       - run:
           name: zip the artifacts
-          working_directory: ~/build
-          command: zip -r << pipeline.number >> 
+          command: zip -r << pipeline.number >> ./app/build/
       - aws-s3/sync:
           from: ./app/build/<< pipeline.number >>.zip
           to: 's3://circle-ci-bucket'          
