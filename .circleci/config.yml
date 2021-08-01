@@ -18,7 +18,7 @@ jobs:
       - run: zip << pipeline.number >> -r .
       - aws-s3/sync:
           from: << pipeline.number >>.zip
-          to: 's3://circle-ci-buckets'
+          to: 's3://circle-ci-bucket'
     
        
 workflows:
