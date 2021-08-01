@@ -18,7 +18,7 @@ jobs:
           name: zip the artifacts
           working_directory: ./app/build
           command: zip -r << pipeline.number >> ./app/build/
-       - run: aws s3 copy ./app/build/<< pipeline.number >>.zip s3://circle-ci-bucket
+      - run: aws s3 copy ./app/build/<< pipeline.number >>.zip s3://circle-ci-bucket
          
           
     
